@@ -5,7 +5,7 @@ Some of the content overlaps with lectures by Masa and others.
 ## Log into the server
 
 Reminder: our server runs on a Linux operating system.  
-The following commands are to 'interact' with that operating system and do NOT work on Windows. Most will work exactly the same on a Mac. Masa's instruction is available [here](https://gist.github.com/masaomi/999d1177c00116e61909220c1d40e32e)
+The following commands are to 'interact' with that operating system and do NOT work on Windows. Most will work exactly the same on a Mac. Masa's (old) instruction is available [here](https://gist.github.com/masaomi/999d1177c00116e61909220c1d40e32e)
 
 ```bash
 $ ssh your_BFabric_account_name@fgcz-genomics.uzh.ch

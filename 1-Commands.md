@@ -172,27 +172,27 @@ Often you'll want/need to have a file in directories in several locations. Inste
 
 ```bash
 # move to your directory if you are not there
-$ cd /scratch/bio373_2024/YOUR_USERNAME 
-$ ln -s /scratch/bio373_2024/data/CommandLine
+$ cd /scratch/EEE338_2026/YOUR_USERNAME 
+$ ln -s /scratch/EEE338_2026/data/CommandLine
 ```
 
 * * *
 
 ### Merge files using `cat`
 
-- `cat`: conCATenate seceral files
+- `cat`: conCATenate several files
 - Often used to quickly display the contents of a file
 - prints all the contents of a file as standard output
 
 ```bash
 # move to working directory
-$ cd /scratch/bio373_2023/YOUR_USERNAME/CommandLine
+$ cd /scratch/EEE338_2026/YOUR_USERNAME/CommandLine
 # merge
-data $ cat file1.txt file2.txt > merged_file.txt
+data $ cat file1.tsv file2.tsv > merged_file.tsv
 
 # quick display on screen
-data $ cat file1.txt
-data $ cat file1.txt file2.txt
+data $ cat file1.tsv
+data $ cat file1.tsv file2.tsv
 ```
 
 * * *
@@ -203,7 +203,7 @@ data $ cat file1.txt file2.txt
 
   ```bash
   # move to working directory if you are not there
-  $ cd /scratch/bio373_2024/data
+  $ cd /scratch/EEE338_2026/data
   data $ less Ahal.gff
   ```
 
@@ -268,8 +268,8 @@ Usage: `gzip [options] filename`
 You need `-c` option and redirection (`>`) to compress the symlinked file.
 
 ```bash
-$ gzip -kvc file1.txt
-$ gzip -kvc file2.txt
+$ gzip -kvc file1.tsv
+$ gzip -kvc file2.tsv
 $ gzip -c MedtrChr2.fa > MedtrChr2.fa.gz
 ```
 There are some commands to compress files. Use proper commands depends your files.
@@ -283,10 +283,10 @@ Many tools either output compressed (gzipped, bzipped, etc) files, collaborators
 When they are compressed, you need to slightly modify your commands to deal with those files. 
 
 ```bash
-$ zless file.txt.gz
-$ zcat file.txt.gz
-$ zdiff file1.txt.gz file2.txt.gz
-$ zgrep -c file.txt.gz
+$ zless file.tsv.gz
+$ zcat file.tsv.gz
+$ zdiff file1.tsv.gz file2.txt.gz
+$ zgrep -c file.tsv.gz
 ```
 
 These are special. Unfortunately, you can't just put a 'z' in front of any command to have it magically work!
@@ -294,7 +294,7 @@ These are special. Unfortunately, you can't just put a 'z' in front of any comma
 Sometimes, you'll have to pipe commands to make it work:
 
 ```bash
-$ zcat file.txt.gz | cut -f1 -d "_" > newfile.txt
+$ zcat file.tsv.gz | cut -f1 -d "_" > newfile.tsv
 ```
 
 * * *
@@ -329,9 +329,9 @@ Counts and prints number of lines, words, and bytes (all three by default) for e
 `-m`: counts only characters
 
 ```bash
-$ wc -l file1.txt
-$ wc -c file1.txt
-$ wc -c file1.txt file2.txt
+$ wc -l file1.tsv
+$ wc -c file1.tsv
+$ wc -c file1.tsv file2.tsv
 ```
 
 * * *
@@ -447,12 +447,12 @@ On the server copy file to the home (~) directory
 $	cp file ~
 
 Then on your computer, copy file from server to your computer
-$	scp your_name@fgcz-c-047.uzh.ch:~/file .
+$	scp your_name@fgcz-genomics.uzh.ch:~/file .
 
 
 To copy file from your computer to server:
 
-$	scp ./file your_name@fgcz-c-047.uzh.ch:~ 
+$	scp ./file your_name@fgcz-genomics.uzh.ch:~ 
 
 * * *
 

@@ -35,12 +35,12 @@ Make sure you are in the directory you think you are in.
 Start from your directory on the server for the course and make a new folder for this exercise:
 
 ```bash
-$ ssh your_BFabric_account_name@fgcz-c-047.uzh.ch
+$ ssh your_BFabric_account_name@fgcz-genomics.uzh.ch
 @fgcz-genomics.uzh.ch's password:
 
 $ ssh fgcz-kl-004
 
-$ cd /scratch/EEE338_2025/YOUR_NAME
+$ cd /scratch/EEE338_2026/YOUR_NAME
 $ mkdir VarCall
 ```
 
@@ -52,7 +52,7 @@ We use symlinks to help save diskspace on the server.
 $ cd VarCall
 $ mkdir 00_input
 $ cd 00_input
-$ dataDir="/scratch/EEE338_2025/data/VarCall/00_input"
+$ dataDir="/scratch/EEE338_2026/data/VarCall/00_input"
 $ ln -s ${dataDir}/MedtrChr2.fa
 $ ln -s ${dataDir}/516950_chr2_R1.fastq.gz
 $ ln -s ${dataDir}/516950_chr2_R2.fastq.gz

@@ -52,8 +52,8 @@ varName=value
 Examples (run in order):
 
 ```bash
-$ bio373=/sratch/bio373_2023
-$ workdir=$bio373/data
+$ EEE338=/scratch/EEE338_2026
+$ workdir=$EEE338/data
 $ echo $workdir
 $ ls ${workdir}
 $ test=AAA

@@ -272,7 +272,7 @@ $ gzip -kvc file1.tsv
 $ gzip -kvc file2.tsv
 $ gzip -c MedtrChr2.fa > MedtrChr2.fa.gz
 ```
-There are some commands to compress files. Use proper commands depends your files.
+There are some commands to compress files. Using proper commands depends on your files.
 
 * * *
 
@@ -285,7 +285,7 @@ When they are compressed, you need to slightly modify your commands to deal with
 ```bash
 $ zless file.tsv.gz
 $ zcat file.tsv.gz
-$ zdiff file1.tsv.gz file2.txt.gz
+$ zdiff file1.tsv.gz file2.tsv.gz
 $ zgrep -c file.tsv.gz
 ```
 

@@ -160,7 +160,7 @@ Usage: `copy file_name /path/to/directory/you/want/to/paste`
 For copying directory, you need to add `-r` option
 
 ```bash
-$ cp -r /scratch/bio373_2024/data/CommandLine /scratch/bio373_2024/YOUR_USERNAME 
+$ cp -r /scratch/EEE338_2026/data/narcis/CommandLine /scratch/EEE338_2026/YOUR_USERNAME 
 $ ls #check if the directory copied properly
 ```
 
@@ -173,7 +173,7 @@ Often you'll want/need to have a file in directories in several locations. Inste
 ```bash
 # move to your directory if you are not there
 $ cd /scratch/EEE338_2026/YOUR_USERNAME 
-$ ln -s /scratch/EEE338_2026/data/CommandLine
+$ ln -s /scratch/EEE338_2026/data/narcis/CommandLine
 ```
 
 * * *
@@ -203,7 +203,7 @@ data $ cat file1.tsv file2.tsv
 
   ```bash
   # move to working directory if you are not there
-  $ cd /scratch/EEE338_2026/data
+  $ cd /scratch/EEE338_2026/data/narcis/CommandLine
   data $ less Ahal.gff
   ```
 

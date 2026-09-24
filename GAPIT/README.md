@@ -112,6 +112,88 @@ plot(pred$Prediction,
 abline(res)
 ```
 
+## 5. Correlation between masked-then-predicted and truly observed values, and predicting flowering time of missing accessions
+```
+## the section below is added this year (2026) (using Claude):
+## ---------------------------------------------------------------
+## Two separate things:
+##   1) k-fold cross-validation -> a real accuracy estimate, using only
+##      accessions where the true value is known (so we can check
+##      predictions against ground truth).
+##   2) predictions for the accessions that have NO observed phenotype
+##      at all -> no accuracy number is possible here, only the
+##      predicted values themselves.
+## ---------------------------------------------------------------
+
+set.seed(123) # reproducible fold assignment
+
+## ---- 1) k-fold cross-validation ----
+
+k <- 5
+known_idx <- which(!is.na(p$Flowering.time.at.Aberdeen)) # only accessions we can score
+folds <- sample(rep(1:k, length.out = length(known_idx))) # random fold label per known accession
+
+cv_results <- data.frame(
+  HybID = character(),
+  Observed = numeric(),
+  Predicted = numeric(),
+  stringsAsFactors = FALSE
+)
+
+for (i in 1:k) {
+  # mask this fold's phenotypes as if they were unobserved
+  p_cv <- p
+  mask_idx <- known_idx[folds == i]
+  p_cv$Flowering.time.at.Aberdeen[mask_idx] <- NA
+  
+  gapit_cv <- GAPIT(
+    Y = p_cv[, c("HybID", "Flowering.time.at.Aberdeen")],
+    GD = g,
+    GM = gm,
+    SNP.MAF = 0.05,
+    model = "gBLUP",
+    kinship.algorithm = "VanRaden",
+    file.output = FALSE
+  )
+  
+  pred_cv <- gapit_cv$Pred
+  # explicit match
+  pred_cv <- pred_cv[match(p$HybID[mask_idx], pred_cv$Taxa), ]
+  
+  cv_results <- rbind(cv_results, data.frame(
+    HybID = p$HybID[mask_idx],
+    Observed = p$Flowering.time.at.Aberdeen[mask_idx],
+    Predicted = pred_cv$Prediction
+  ))
+}
+
+# accuracy: correlation between masked-then-predicted and truly observed values
+cor.test(cv_results$Observed, cv_results$Predicted, method = "pearson")
+
+res_cv <- lm(Observed ~ Predicted, data = cv_results)
+plot(cv_results$Predicted, cv_results$Observed,
+     xlab = "Predicted (5-fold cross-validation)",
+     ylab = "Observed Flowering.time.at.Aberdeen",
+     main = paste("Cross-validation r =", round(sqrt(summary(res_cv)$r.squared), 2))
+)
+abline(res_cv)
+
+## ---- 2) predictions for accessions with NO observed phenotype ----
+## (these were never masked above - they're actually missing in the raw data)
+
+NA06 <- is.na(p$Flowering.time.at.Aberdeen)
+
+# `pred` here is myGAPIT_BLUP$Pred from the original full-data gBLUP run
+missing_predictions <- data.frame(
+  Taxa = p$HybID[NA06],
+  Predicted_Flowering = pred$Prediction[match(p$HybID[NA06], pred$Taxa)]
+)
+head(missing_predictions)
+nrow(missing_predictions)
+
+#
+```
+
 Predicting flowering time of missing accessions
 ```
 NA06 <- is.na(y$Year06Flowering.time.at.Arkansas)

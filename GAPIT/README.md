@@ -194,17 +194,6 @@ nrow(missing_predictions)
 #
 ```
 
-Predicting flowering time of missing accessions
-```
-NA06 <- is.na(y$Year06Flowering.time.at.Arkansas)
-
-# perform a linear regression to estimate the slope and intercept
-res <- lm(y$Year07Flowering.time.at.Arkansas[NA06]~pred$Prediction[NA06])
-
-# plot the results
-plot(pred$Prediction[NA06],
-     y$Year07Flowering.time.at.Arkansas[NA06],
-     ylab="flowering 2007", xlab="predicted",
      main=paste("r =",round(sqrt(summary(res)$r.squared),2)))
 abline(res)
 ```

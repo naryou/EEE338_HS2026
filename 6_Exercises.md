@@ -30,13 +30,14 @@ These exercises are really just designed to try to get you to understand what ma
 Bitwise flag meaning: <https://broadinstitute.github.io/picard/explain-flags.html>
 
 1. Find bitwise flags for a few reads in any bam file and decode them using the link above. On the website, you can check only one box at a time to see what an individual property’s value is.
-2. Using samtools tview, go to chr2:7271 in 516950.deduped.bam by pressing ‘g’ then typing chr2:7271[Enter]. Compare that with chr2:1018541. Why do you think they are different in terms of coverage and mapping quality? Find a few other areas that look interesting to you and take note of their position.
-3. Do these regions look the same in sample 660389?
-4. 
+2. Interpret the CIGAR field of the first few alignments.
+3. Using samtools tview, go to chr2:7271 in 516950.deduped.bam by pressing ‘g’ then typing chr2:7271[Enter]. Compare that with chr2:1018541. Why do you think they are different in terms of coverage and mapping quality? Find a few other areas that look interesting to you and take note of their position.
+4. Do these regions look the same in sample 660389?
+5. 
    1. How many unique bitwise flags are there in 516950.sorted.bam file?
    2. How many unique bitwise flags are there in the dedupped bam file?
    3. How many reads were marked as duplicates? (Hint; the flags are the sum of the value of each individual property assigned to a read; duplicates = 1024)
-5. Extra: Practice writing a bash script to run the alignment and dedup steps on both genotypes.
+6. Extra: Practice writing a bash script to run the alignment and dedup steps on both genotypes.
 
 * * *
 

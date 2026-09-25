@@ -1,4 +1,5 @@
 # GWAS/GS exercise using GAPIT
+## temporary: new URL for genome browser (slide 23): plants.ensembl.org/Oryza_sativa
 
 ## 0. start RStudio 
 

@@ -93,6 +93,13 @@ pred <- pred[order(pred$Taxa),]
 y <- p[order(p$HybID),]
 ```
 
+Filling in phenotypes GAPIT couldn't observe, using kinship
+
+```
+pred$Prediction[is.na(y$Flowering.time.at.Aberdeen)] # this is the actual genomic-prediction payoff: filling in phenotypes GAPIT couldn't observe, using kinship
+##
+```
+
 Pearson's correlation between predicted and observed flowering  
 ```
 # calculate Pearson's correlation between predicted and observed flowering

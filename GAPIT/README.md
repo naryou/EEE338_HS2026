@@ -1,5 +1,9 @@
 # GWAS/GS exercise using GAPIT
-## temporary: new URL for genome browser (slide 23): plants.ensembl.org/Oryza_sativa also try [this](https://rice.uga.edu/jb2/?session=local-FCWky9JwdGzmRw33L332K) 
+## temporary: 
+
+new URL for genome browser (slide 23): plants.ensembl.org/Oryza_sativa 
+
+also try [this](https://rice.uga.edu/jb2/?session=local-FCWky9JwdGzmRw33L332K) 
 
 ## 0. start RStudio 
 

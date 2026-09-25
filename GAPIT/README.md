@@ -194,6 +194,3 @@ nrow(missing_predictions)
 #
 ```
 
-     main=paste("r =",round(sqrt(summary(res)$r.squared),2)))
-abline(res)
-```
